@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Dropdown } from 'semantic-ui-react'
 
 
 class OptionSelector extends Component {
@@ -22,6 +23,7 @@ class OptionSelector extends Component {
         <div> I have an array, I would like to
           <FormControl>
             <Select
+              style={{width: '300px'}}
               value={this.state.selectedOption}
               onChange={ e =>
                 {this.setState ({
