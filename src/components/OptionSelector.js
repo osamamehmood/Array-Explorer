@@ -32,7 +32,7 @@ const options = [
   },
 ]
 
-const optionForAddingItems = [
+const optionForAddingItemsToArray = [
   {
     label: 'Add element(s) to an array',
     value: 'Add element(s) to an array',
@@ -54,34 +54,55 @@ const optionForAddingItems = [
 
 class OptionSelector extends Component {
   state = {
-    selectedOption : '',
-    showOptionsForAddingItems: false
+    firstSelectedOption : '',
+    secondSelectedOption : '',
+    showOptionsForAddingItemsToArray: false
   }
 
-  handleChange = e => {
+  selectFirstOption = e => {
     let selectedOption = e;
     this.setState({
-      selectedOption: selectedOption.value,
+      firstSelectedOption: selectedOption.value,
+    })
+
+    if (selectedOption.value === 'Add items to others arrays') {
+      this.setState({
+        showOptionsForAddingItemsToArray: true
+      });
+    } else {
+        this.setState({
+          showOptionsForAddingItemsToArray: false
+        });
+    }
+
+  }
+
+  selectSecondOption = e => {
+    let selectedOption = e;
+    this.setState({
+      secondSelectedOption: selectedOption.value,
     })
   }
 
   render(){
+    console.log(this.state.secondSelectedOption)
     return (
       <div>
         <h1> JavaScript Array Explorer </h1>
         <p>I have an array, I would like to</p>
+
         <div style={{width: '300px'}}>
           <Select
             options={options}
-            onChange={this.handleChange}
+            onChange={this.selectFirstOption}
           />
-          { this.state.selectedOption === 'Add items to others arrays' ?
+          { this.state.showOptionsForAddingItemsToArray ?
           (
             <div>
               <p> I need to add </p>
               <Select
-                options={optionForAddingItems}
-                onChange={this.handleChange}
+                options={optionForAddingItemsToArray}
+                onChange={this.selectSecondOption}
               />
             </div>
           )
