@@ -115,7 +115,7 @@ class OptionSelector extends Component {
         <div>
           { this.state.secondSelectedOption === 'Add element(s) to an array' ?
             (
-              <Card>
+              <Card style={{width: '400px', margin: '20px 0px'}}>
                 <CardContent>
                   <Typography>
                       <h1>Array.splice</h1>
