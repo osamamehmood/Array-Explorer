@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 const options = [
   {
@@ -108,6 +111,21 @@ class OptionSelector extends Component {
           )
             : ''
           }
+        </div>
+        <div>
+          { this.state.secondSelectedOption === 'Add element(s) to an array' ?
+            (
+              <Card>
+                <CardContent>
+                  <Typography>
+                      <h1>Array.splice</h1>
+                  </Typography>
+                </CardContent>
+              </Card>
+
+            )
+              : ''
+            }
         </div>
       </div>
     );
